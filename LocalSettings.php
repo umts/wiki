@@ -204,9 +204,8 @@ $wgGroupPermissions['priveleged' ]['purge']           = true;
 $wgShowIPinHeader = false; 
 
 // #### Extensions: ####
-//require_once("$IP/extensions/GeshiCodeTag.php"); //Syntax Highlighting extension, added by MM
+require_once("$IP/extensions/GeshiCodeTag.php"); //Syntax Highlighting extension, added by MM
 require_once "$IP/extensions/SyntaxHighlight_GeSHi/SyntaxHighlight_GeSHi.php";
-require_once( "$IP/extensions/ReplaceText/ReplaceText.php" );
 
 //Parser Functions - Mostly for the help, but other folks might use them
 require_once( "$IP/extensions/ParserFunctions/ParserFunctions.php" );
