@@ -58,8 +58,8 @@ $wgUploadDirectory  = "$IP/images";
 $wgEnableEmail      = true;
 $wgEnableUserEmail  = true;
 
-$wgEmergencyContact = "adam@admin.umass.edu";
-$wgPasswordSender = "adam@admin.umass.edu";
+$wgEmergencyContact = "transit-it@admin.umass.edu";
+$wgPasswordSender = "adam@umass.edu";
 
 ## For a detailed description of the following switches see
 ## http://meta.wikimedia.org/Enotif and http://meta.wikimedia.org/Eauthent
@@ -71,16 +71,8 @@ $wgEnotifWatchlist = true; # UPO
 $wgEmailAuthentication = true;
 
 
-# Schemas for Postgres
-$wgDBmwschema       = "mediawiki";
-$wgDBts2schema      = "public";
-
 # Experimental charset support for MySQL 4.1/5.0.
 $wgDBmysql5 = false;
-
-## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
-$wgMemCachedServers = array();
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
@@ -97,49 +89,13 @@ $wgFileExtensions = array( 'svg', 'png', 'gif', 'jpg', 'jpeg', 'pdf', 'doc', 'xl
 $wgVerifyMimeType = false;
 $wgStrictFileExtensions = false;	
 
-## If you want to use image uploads under safe mode,
-## create the directories images/archive, images/thumb and
-## images/temp, and make them all writable. Then uncomment
-## this, if it's not already uncommented:
-# $wgHashedUploadDirectory = false;
-
-## If you have the appropriate support software installed
-## you can enable inline LaTeX equations:
-$wgUseTeX           = false;
-$wgMathPath         = "{$wgUploadPath}/math";
-$wgMathDirectory    = "{$wgUploadDirectory}/math";
-$wgTmpDirectory     = "{$wgUploadDirectory}/tmp";
-
 $wgLocalInterwiki   = $wgSitename;
-
-$wgLanguageCode = "en";
-
-$wgProxyKey = "269702583f6b67e421ad17d913aed3396437676423408becf19bcda3cbc725e8";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook':
 $wgDefaultSkin = 'monobook';
 
-## For attaching licensing metadata to pages, and displaying an
-## appropriate copyright notice / icon. GNU Free Documentation
-## License and Creative Commons licenses are supported so far.
-# $wgEnableCreativeCommonsRdf = true;
-$wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
-$wgRightsUrl = "";
-$wgRightsText = "";
-$wgRightsIcon = "";
-# $wgRightsCode = ""; # Not yet used
-
-$wgDiff3 = "";
-
-# When you make changes to this configuration file, this will make
-# sure that cached pages are cleared.
-$configdate = gmdate( 'YmdHis', @filemtime( __FILE__ ) );
-$wgCacheEpoch = max( $wgCacheEpoch, $configdate );
-
-$wgLocalTZoffset = date("Z") / 60;
-
-$wgRCMaxAge = 13 * 7 * 24 * 3600;
+$wgDiff3 = "/usr/bin/diff3";
 
 ## What Namespaces to include in the search by default.  Note that this is also
 ## a user setting.  If you change this, use something like:
