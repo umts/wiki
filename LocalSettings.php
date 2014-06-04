@@ -224,28 +224,16 @@ $wgGroupPermissions['uploaders' ]['reupload-shared'] = true;
 $wgShowIPinHeader = false; 
 
 // #### Extensions: ####
-require_once("$IP/extensions/GeshiCodeTag.php"); //Syntax Highlighting extension, added by MM
-
-//User contribution stats:
-require_once( "$IP/extensions/ContributionScores/ContributionScores.php" );
- 
-$wgContribScoreIgnoreBots = true;          // Exclude Bots from the reporting - Can be omitted.
-$wgContribScoreIgnoreBlockedUsers = true;  // Exclude Blocked Users from the reporting - Can be omitted.
-$wgContribScoreDisableCache = false;       // Set to true to disable cache for parser function and inclusion of table
- 
-//Each array defines a report - 7,50 is "past 7 days" and "LIMIT 50" - Can be omitted.
-$wgContribScoreReports = array(
-    array(7,50),
-    array(30,50),
-    array(90,50),
-    array(0,50));
+//require_once("$IP/extensions/GeshiCodeTag.php"); //Syntax Highlighting extension, added by MM
+require_once "$IP/extensions/SyntaxHighlight_GeSHi/SyntaxHighlight_GeSHi.php";
+require_once( "$IP/extensions/ReplaceText/ReplaceText.php" );
 
 //Parser Functions - Mostly for the help, but other folks might use them
 require_once( "$IP/extensions/ParserFunctions/ParserFunctions.php" );
-require_once( "$IP/extensions/StringFunctions/StringFunctions.php" );
+//require_once( "$IP/extensions/StringFunctions/StringFunctions.php" );
 
 //Interwiki page
-require_once("$IP/extensions/Interwiki/SpecialInterwiki.php");
+require_once("$IP/extensions/Interwiki/Interwiki.php");
 $wgGroupPermissions['*']['interwiki'] = false;
 $wgGroupPermissions['sysop']['interwiki'] = true;
 
