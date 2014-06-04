@@ -168,57 +168,81 @@ $wgNamespacesToBeSearchedDefault = array(
 #----------------------------------------------------------------
 
 //remove default anon priveleges
-$wgGroupPermissions['*'    ]['createaccount']   = false;
-$wgGroupPermissions['*'    ]['read']            = false;
-$wgGroupPermissions['*'    ]['edit']            = false;
-$wgGroupPermissions['*'    ]['createpage']      = false;
-$wgGroupPermissions['*'    ]['createtalk']      = false;
+$wgGroupPermissions['*'    ]['createaccount']     = false;
+$wgGroupPermissions['*'    ]['read']              = false;
+$wgGroupPermissions['*'    ]['edit']              = false;
+$wgGroupPermissions['*'    ]['createpage']        = false;
+$wgGroupPermissions['*'    ]['createtalk']        = false;
+$wgGroupPermissions['*'    ]['writeapi']          = false;
+$wgGroupPermissions['*'    ]['editmyusercss']     = false;
+$wgGroupPermissions['*'    ]['editmyuserjs']      = false;
+$wgGroupPermissions['*'    ]['viewmywatchlist']   = false;
+$wgGroupPermissions['*'    ]['editmywatchlist']   = false;
+$wgGroupPermissions['*'    ]['viewmyprivateinfo'] = false;
+$wgGroupPermissions['*'    ]['editmyprivateinfo'] = false;
+$wgGroupPermissions['*'    ]['editmyoptions']     = false;
 
 //But, allow them to see the login page
-$wgWhitelistRead = array( ":Main Page", "Special:Userlogin", "-", "MediaWiki:Monobook.css" );
+$wgWhitelistRead = array( "Main Page",
+                          "Special:UserLogin",
+                          "Special:UserLogout",
+                          "Special:PasswordReset",
+                          "MediaWiki:Common.css",
+                          "MediaWiki:Monobook.css"
+                        );
 
 //remove default user priveleges
-$wgGroupPermissions['user' ]['move']            = false;
-$wgGroupPermissions['user' ]['read']            = false;
-$wgGroupPermissions['user' ]['edit']            = false;
-$wgGroupPermissions['user' ]['createpage']      = false;
-$wgGroupPermissions['user' ]['createtalk']      = false;
-$wgGroupPermissions['user' ]['upload']          = false;
-$wgGroupPermissions['user' ]['reupload']        = false;
-$wgGroupPermissions['user' ]['reupload-shared'] = false;
-$wgGroupPermissions['user' ]['minoredit']       = false;
+$wgGroupPermissions['user' ]['move']               = false;
+$wgGroupPermissions['user' ]['move-subpages']      = false;
+$wgGroupPermissions['user' ]['move-rootuserpages'] = false;
+$wgGroupPermissions['user' ]['movefile']           = false;
+$wgGroupPermissions['user' ]['read']               = false;
+$wgGroupPermissions['user' ]['edit']               = false;
+$wgGroupPermissions['user' ]['createpage']         = false;
+$wgGroupPermissions['user' ]['createtalk']         = false;
+$wgGroupPermissions['user' ]['writeapi']           = false;
+$wgGroupPermissions['user' ]['upload']             = false;
+$wgGroupPermissions['user' ]['reupload']           = false;
+$wgGroupPermissions['user' ]['reupload-shared']    = false;
+$wgGroupPermissions['user' ]['minoredit']          = false;
+$wgGroupPermissions['user' ]['purge']              = false;
+$wgGroupPermissions['user' ]['sendemail']          = false;
 
 
-########################################
-# at this point no user has any rights #
-########################################
-
-//create a special user group
-$wgGroupPermissions['priveleged' ]['move']            = true;
-$wgGroupPermissions['priveleged' ]['read']            = true;
-$wgGroupPermissions['priveleged' ]['edit']            = true;
-$wgGroupPermissions['priveleged' ]['createpage']      = true;
-$wgGroupPermissions['priveleged' ]['createtalk']      = true;
-$wgGroupPermissions['priveleged' ]['upload']          = true;
-$wgGroupPermissions['priveleged' ]['reupload']        = true;
-$wgGroupPermissions['priveleged' ]['reupload-shared'] = true;
-$wgGroupPermissions['priveleged' ]['minoredit']       = true;
-
+##############################################
+# at this point no basic user has any rights #
+# 'sysop' and 'bureaucrat' remain as default #
+##############################################
 //group of users who only have read access
-$wgGroupPermissions['readers' ]['read']            = true;
+$wgGroupPermissions['readers' ]['read']              = true;
+$wgGroupPermissions['readers' ]['editmyusercss']     = true;
+$wgGroupPermissions['readers' ]['editmyuserjs']      = true;
+$wgGroupPermissions['readers' ]['viewmywatchlist']   = true;
+$wgGroupPermissions['readers' ]['editmywatchlist']   = true;
+$wgGroupPermissions['readers' ]['viewmyprivateinfo'] = true;
+$wgGroupPermissions['readers' ]['editmyprivateinfo'] = true;
+$wgGroupPermissions['readers' ]['editmyoptions']     = true;
+$wgGroupPermissions['readers' ]['sendemail']         = true;
 
 //group of users who have editing access
-$wgGroupPermissions['editors' ]['move']            = true;
-$wgGroupPermissions['editors' ]['read']            = true;
-$wgGroupPermissions['editors' ]['edit']            = true;
-$wgGroupPermissions['editors' ]['createpage']      = true;
-$wgGroupPermissions['editors' ]['createtalk']      = true;
-$wgGroupPermissions['editors' ]['minoredit']       = true;
+$wgGroupPermissions['editors'] = $wgGroupPermissions['readers'];
+$wgGroupPermissions['editors' ]['move']               = true;
+$wgGroupPermissions['editors' ]['move-subpages']      = true;
+$wgGroupPermissions['editors' ]['move-rootuserpages'] = true;
+$wgGroupPermissions['editors' ]['edit']               = true;
+$wgGroupPermissions['editors' ]['createpage']         = true;
+$wgGroupPermissions['editors' ]['createtalk']         = true;
+$wgGroupPermissions['editors' ]['minoredit']          = true;
 
 //groups of users who can upload
 $wgGroupPermissions['uploaders' ]['upload']          = true;
 $wgGroupPermissions['uploaders' ]['reupload']        = true;
 $wgGroupPermissions['uploaders' ]['reupload-shared'] = true;
+
+//create a special user group
+$wgGroupPermissions['privileged'] = array_merge( $wgGroupPermissions['editors'], $wgGroupPermissions['uploaders'] );
+$wgGroupPermissions['priveleged' ]['writeapi']        = true;
+$wgGroupPermissions['priveleged' ]['purge']           = true;
 
 //removes talk page link for non-logged-in users
 $wgShowIPinHeader = false; 
