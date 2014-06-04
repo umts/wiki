@@ -1,4 +1,4 @@
-set :application, "wiki-test"
+set :application, "wiki"
 set :repository,  "git@github.com:umts/wiki.git"
 
 set :scm, :git
