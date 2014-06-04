@@ -240,7 +240,7 @@ $wgGroupPermissions['uploaders' ]['reupload']        = true;
 $wgGroupPermissions['uploaders' ]['reupload-shared'] = true;
 
 //create a special user group
-$wgGroupPermissions['privileged'] = array_merge( $wgGroupPermissions['editors'], $wgGroupPermissions['uploaders'] );
+$wgGroupPermissions['priveleged'] = array_merge( $wgGroupPermissions['editors'], $wgGroupPermissions['uploaders'] );
 $wgGroupPermissions['priveleged' ]['writeapi']        = true;
 $wgGroupPermissions['priveleged' ]['purge']           = true;
 
