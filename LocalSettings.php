@@ -123,7 +123,7 @@ $wgNamespacesToBeSearchedDefault = array(
 #  Added Groups
 #----------------------------------------------------------------
 
-//remove default anon priveleges
+//remove (nearly all) default anon priveleges
 $wgGroupPermissions['*'    ]['createaccount']     = false;
 $wgGroupPermissions['*'    ]['read']              = false;
 $wgGroupPermissions['*'    ]['edit']              = false;
@@ -134,9 +134,9 @@ $wgGroupPermissions['*'    ]['editmyusercss']     = false;
 $wgGroupPermissions['*'    ]['editmyuserjs']      = false;
 $wgGroupPermissions['*'    ]['viewmywatchlist']   = false;
 $wgGroupPermissions['*'    ]['editmywatchlist']   = false;
-$wgGroupPermissions['*'    ]['viewmyprivateinfo'] = false;
-$wgGroupPermissions['*'    ]['editmyprivateinfo'] = false;
-$wgGroupPermissions['*'    ]['editmyoptions']     = false;
+$wgGroupPermissions['*'    ]['viewmyprivateinfo'] = true;
+$wgGroupPermissions['*'    ]['editmyprivateinfo'] = true;
+$wgGroupPermissions['*'    ]['editmyoptions']     = true;
 
 //But, allow them to see the login page
 $wgWhitelistRead = array( "Main Page",
